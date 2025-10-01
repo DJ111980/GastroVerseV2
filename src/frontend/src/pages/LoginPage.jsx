@@ -41,7 +41,7 @@ const LoginPage = () => {
 
     try {
       await login(email, password);
-      navigate("/"); // Redirige a la página de inicio tras un login exitoso.
+      navigate("/perfil"); // Redirige a la página de inicio tras un login exitoso.
     } catch (err) {
       // Muestra un mensaje de error si el login falla.
       setError(
