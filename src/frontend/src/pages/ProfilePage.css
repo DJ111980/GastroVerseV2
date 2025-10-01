@@ -1,0 +1,33 @@
+.profile-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 24px;
+}
+.profile-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+}
+.profile-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.profile-info label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+.profile-info span {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}

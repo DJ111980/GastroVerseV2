@@ -1,0 +1,144 @@
+/**
+ * @fileoverview Hoja de estilos global para la aplicación GastroVerse.
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo define las bases del sistema de diseño de la aplicación,
+ * incluyendo la paleta de colores, la tipografía, y los estilos base para
+ * elementos HTML comunes. También contiene clases de utilidad globales.
+ */
+
+/* ==========================================================================
+   1. Definición de Variables Globales (Sistema de Diseño)
+   ========================================================================== */
+/**
+ * El selector `:root` se utiliza para declarar variables CSS (Custom Properties)
+ * que estarán disponibles en todo el documento. Esto centraliza los valores
+ * de diseño para facilitar su mantenimiento y consistencia.
+ */
+:root {
+  /* --- Paleta de Colores --- */
+  --color-primary: #dc2626;          /* Color principal para branding, enlaces y acentos importantes. */
+  --color-primary-dark: #da3545;    /* Versión más oscura del primario, para estados :hover. */
+  --color-accent: #E0A800;           /* Color de acento para llamadas a la acción secundarias o elementos destacados. */
+  --color-accent-dark: #c89600;     /* Versión oscura del color de acento. */
+  --color-text: #2C2C2C;             /* Color principal para el cuerpo del texto. */
+  --color-text-light: #555;         /* Color de texto más claro para subtítulos o metadatos. */
+  --color-background: #ffeeee;       /* Color de fondo general de la aplicación. */
+  --color-surface: #FFFFFF;          /* Color para superficies elevadas como tarjetas, modales, etc. */
+  --color-surface-secondary: #F8F9FA;/* Un color de superficie alternativo, ligeramente gris. */
+  --color-border: #EAEAEA;           /* Color para bordes sutiles. */
+  --color-success: #28a745;          /* Color para notificaciones de éxito. */
+  --color-danger: #dc3545;           /* Color para notificaciones de error o acciones destructivas. */
+
+  /* --- Tipografía --- */
+  --font-headings: 'Lora', serif;    /* Fuente con serifa para títulos, aporta elegancia. */
+  --font-body: 'Lato', sans-serif;   /* Fuente sans-serif para el cuerpo, optimizada para legibilidad. */
+
+  /* --- Otros --- */
+  --border-radius: 8px;              /* Radio de borde estándar para un look moderno y suave. */
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra de caja sutil para dar profundidad. */
+  --box-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada para interacciones. */
+}
+
+/* ==========================================================================
+   2. Reset y Estilos Base Globales
+   ========================================================================== */
+/**
+ * Estilos base para el `<body>`. Se eliminan los márgenes por defecto y se aplican
+ * la fuente, el color de fondo y el color de texto definidos en las variables.
+ * Se activa el antialiasing para una renderización de fuentes más suave.
+ */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Estilos base para todos los encabezados (h1 a h6).
+ * Se aplica la fuente de títulos y el color primario para consistencia.
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  color: var(--color-primary);
+  margin-top: 0;
+}
+
+/**
+ * Estilos base para los enlaces.
+ */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/**
+ * Estilos base compartidos para la mayoría de los campos de formulario.
+ * Esto asegura una apariencia consistente en toda la aplicación.
+ * `box-sizing: border-box` es crucial para que el padding no afecte el ancho total.
+ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  font-family: var(--font-body);
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  background-color: var(--color-surface);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/**
+ * Estilos para el estado `:focus` de los campos de formulario.
+ * Se elimina el `outline` por defecto y se reemplaza con un `box-shadow`
+ * sutil para una mejor accesibilidad y estética.
+ */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(161, 68, 58, 0.2);
+}
+
+/* ==========================================================================
+   3. Clases de Utilidad Globales
+   ========================================================================== */
+/**
+ * Clase de utilidad para contenedores principales de página.
+ * Centra el contenido y añade un padding lateral.
+ */
+.main-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 24px;
+}
+
+/**
+ * Clase para mostrar mensajes de estado (ej. "Cargando...", "No hay resultados").
+ */
+.status-message {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    color: var(--color-text-light);
+}
+
+/**
+ * Modificador para la clase `.status-message` que se usa para mostrar errores.
+ * Aplica el color de peligro definido en las variables.
+ */
+.status-message.error {
+    color: var(--color-danger);
+}

@@ -1,0 +1,100 @@
+/**
+ * @fileoverview Estilos para la página de inicio (HomePage).
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo define la apariencia de la página principal, incluyendo
+ * la sección de bienvenida (héroe), la sección de búsqueda y filtros, y la
+ * cuadrícula que muestra todas las recetas.
+ */
+
+/* ==========================================================================
+   1. Sección Héroe (Bienvenida)
+   ========================================================================== */
+/**
+ * Estilo para la sección principal de bienvenida.
+ * Centra el texto y proporciona un espaciado generoso.
+ */
+.hero-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+/**
+ * Estilo para el eslogan o subtítulo de la página.
+ * Utiliza la fuente de encabezados con un estilo itálico para darle un toque distintivo.
+ */
+.slogan {
+  font-family: var(--font-headings);
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-top: 0;
+}
+
+/* ==========================================================================
+   2. Sección de Búsqueda y Filtros
+   ========================================================================== */
+.search-section {
+  margin-bottom: 2rem;
+}
+
+/**
+ * Contenedor para mostrar información sobre los filtros aplicados.
+ * Se diseña como una caja de alerta informativa.
+ */
+.filter-info {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background-color: #e9f5ff; /* Un azul claro para información */
+  border: 1px solid #b3d7ff;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+/**
+ * Estilo para el botón de "limpiar filtros" dentro de la caja de información.
+ * Se diseña como un enlace para una apariencia menos intrusiva.
+ */
+.filter-info button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+  margin-left: 0.5rem;
+  padding: 0;
+}
+
+/* ==========================================================================
+   3. Cuadrícula de Recetas
+   ========================================================================== */
+/**
+ * Título para la sección que muestra todas las recetas.
+ * El borde inferior lo separa visualmente del resto del contenido.
+ */
+.all-recipes-title {
+  margin-top: 3rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1rem;
+  font-size: 2rem;
+}
+
+/**
+ * Cuadrícula para mostrar las tarjetas de las recetas.
+ * Esta clase se reutiliza en otras páginas para mantener la consistencia.
+ * `grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))` crea un
+ * layout responsive que ajusta el número de columnas automáticamente.
+ */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}

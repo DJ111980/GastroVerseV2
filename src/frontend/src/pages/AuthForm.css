@@ -1,0 +1,132 @@
+/**
+ * @fileoverview Estilos compartidos para los formularios de autenticación (Login y Registro).
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo contiene los estilos para crear una apariencia de tarjeta
+ * consistente para los formularios de inicio de sesión y registro, asegurando
+ * una experiencia de usuario unificada en todo el flujo de autenticación.
+ */
+
+/* ==========================================================================
+   1. Contenedor Principal del Formulario
+   ========================================================================== */
+/**
+ * Contenedor que ocupa toda la altura visible de la pantalla (menos el navbar)
+ * y utiliza flexbox para centrar perfectamente el formulario en la página,
+ * tanto vertical como horizontalmente.
+ */
+.auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  min-height: calc(10vh - 120px); /* Ajusta la altura según tu navbar */
+}
+
+/**
+ * Estilo de la "tarjeta" del formulario.
+ * Define el fondo, padding, bordes redondeados y sombra para darle
+ * una apariencia elevada y destacada sobre el fondo de la página.
+ */
+.auth-form {
+  background: var(--color-surface);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 450px;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   2. Elementos del Formulario (Grupos, Etiquetas, Botones)
+   ========================================================================== */
+/**
+ * Contenedor para un grupo de etiqueta + input.
+ * Proporciona un espaciado vertical consistente entre los campos del formulario.
+ */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--color-text-light);
+}
+
+/**
+ * Estilo principal para el botón de envío del formulario.
+ * Utiliza los colores primarios y una transición suave para las interacciones.
+ */
+.auth-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/**
+ * Efecto hover para el botón. Se oscurece ligeramente y se eleva
+ * para dar una sensación de interactividad.
+ * El `:not(:disabled)` asegura que el efecto no se aplique si el botón está deshabilitado.
+ */
+.auth-button:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.auth-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   3. Mensajes de Error y Enlaces de Navegación
+   ========================================================================== */
+/**
+ * Contenedor para mostrar una lista de errores de validación.
+ * Utiliza los colores de peligro para llamar la atención del usuario.
+ */
+.error-message-list {
+  color: var(--color-danger);
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.error-message-list ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.error-message-list li:last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * Estilo para el texto y enlace que permite al usuario cambiar
+ * entre el formulario de login y el de registro.
+ */
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--color-text-light);
+}
+
+.auth-switch a {
+  font-weight: bold;
+}

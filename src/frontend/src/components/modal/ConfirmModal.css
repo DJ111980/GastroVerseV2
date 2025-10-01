@@ -1,0 +1,110 @@
+/**
+ * @fileoverview Estilos para el componente de modal de confirmación.
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo define la apariencia del modal de confirmación,
+ * incluyendo la capa de superposición (overlay) y la ventana del modal en sí,
+ * con sus botones de acción.
+ */
+
+/* ==========================================================================
+   1. Capa de Superposición (Overlay)
+   ========================================================================== */
+/**
+ * Estilo para la capa de fondo oscura que cubre toda la pantalla
+ * cuando el modal está activo.
+ * - `position: fixed`: Asegura que cubra toda la ventana del navegador.
+ * - `z-index: 1000`: Lo coloca por encima de todo el resto del contenido.
+ * - `display: flex`: Se utiliza para centrar fácilmente la ventana del modal.
+ */
+.confirm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   2. Ventana del Modal
+   ========================================================================== */
+/**
+ * Estilo para la ventana principal del modal.
+ * Se diseña como una tarjeta centrada con sombra para darle profundidad.
+ * `outline: none` elimina el borde de enfoque por defecto.
+ */
+.confirm-modal {
+  background: var(--color-surface, white);
+  padding: 2rem;
+  border-radius: var(--border-radius, 8px);
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  outline: none;
+  text-align: center;
+}
+
+.modal-title {
+  margin-top: 0;
+  font-family: var(--font-headings);
+  color: var(--color-primary);
+}
+
+.modal-message {
+  margin-bottom: 2rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   3. Botones de Acción del Modal
+   ========================================================================== */
+/**
+ * Contenedor para los botones de "Aceptar" y "Cancelar".
+ * `gap` proporciona un espaciado consistente entre ellos.
+ */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/**
+ * Estilo base para los botones dentro del modal.
+ */
+.modal-button {
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: var(--border-radius, 5px);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/**
+ * Modificador para el botón de "Cancelar".
+ */
+.modal-button.cancel {
+  background-color: #6c757d; /* Un color neutro/gris */
+  color: white;
+}
+.modal-button.cancel:hover {
+  background-color: #5a6268;
+}
+
+/**
+ * Modificador para el botón de "Aceptar" (confirmación).
+ * Utiliza un color de peligro para indicar una acción destructiva.
+ */
+.modal-button.confirm {
+  background-color: #dc3545;
+  color: white;
+}
+.modal-button.confirm:hover {
+  background-color: #c82333;
+}

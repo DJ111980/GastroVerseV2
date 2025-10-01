@@ -1,0 +1,171 @@
+/**
+ * @fileoverview Estilos para el componente de la barra de navegación (Navbar).
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo define la apariencia de la barra de navegación principal,
+ * incluyendo el logo, los enlaces del menú y los botones de acción.
+ */
+
+/* ==========================================================================
+   1. Contenedor Principal de la Barra de Navegación
+   ========================================================================== */
+/**
+ * Estilo base para la barra de navegación.
+ * - `position: sticky` y `top: 0`: Hacen que la barra se quede fija en la parte
+ *   superior de la pantalla al hacer scroll.
+ * - `z-index: 999`: Asegura que esté por encima de la mayoría del contenido.
+ * - `display: flex`: Se usa para centrar el `.navbar-container`.
+ */
+.navbar {
+  background: var(--color-surface);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/**
+ * Contenedor interno que limita el ancho del contenido de la barra de navegación
+ * y alinea sus elementos (logo y menú) en los extremos opuestos.
+ */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   2. Logo
+   ========================================================================== */
+/**
+ * Estilo para el contenedor del logo.
+ * `display: flex` y `align-items: center` son clave para alinear
+ * verticalmente la imagen del logo con el texto.
+ */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-primary);
+  font-family: var(--font-headings);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.navbar-logo-img {
+  height: 80px;
+  width: 100px;
+  margin-right: 1px;
+}
+
+/* ==========================================================================
+   3. Menú de Navegación y Enlaces
+   ========================================================================== */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/**
+ * Estilo para los enlaces de texto del menú.
+ * El borde inferior transparente se usa para evitar que el contenido "salte"
+ * al aparecer el borde en el estado :hover.
+ */
+.navbar-link {
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease-out;
+}
+
+/**
+ * Estilo para el estado activo o hover de un enlace.
+ * Muestra un borde inferior del color primario.
+ */
+.navbar-link:hover,
+.navbar-link.active {
+  color: var(--color-primary);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+/* ==========================================================================
+   4. Botones de Acción (Cerrar Sesión, Registrarse)
+   ========================================================================== */
+/**
+ * Clase base compartida para todos los botones en la barra de navegación.
+ * Unifica el padding, borde, fuente y transiciones.
+ */
+.navbar-button,
+.navbar-link-cta {
+  font-family: var(--font-body);
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  color: white;
+}
+
+.navbar-button {
+  background-color: var(--color-primary);
+}
+
+.navbar-button:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+/**
+ * Modificador para el botón de "Registrarse" (Call to Action).
+ * Hereda los estilos de la clase base y puede añadir o sobreescribir
+ * propiedades específicas si fuera necesario.
+ */
+.navbar-link-cta {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  margin-left: 0.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+  text-decoration: none;
+}
+
+.navbar-link-cta:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  color: white;
+  border-bottom: none;
+}
