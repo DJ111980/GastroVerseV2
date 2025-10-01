@@ -30,7 +30,7 @@ const PORT = process.env.PORT || 10000;
  */
 const allowedOrigins = [
     // Orígenes de producción
-    process.env.FRONTEND_URL || 'Aqui va el url del frontend',
+    process.env.FRONTEND_URL || 'https://gastroversev2-591w.onrender.com',
     /https:\/\/.*\.onrender\.com$/,
     // Orígenes de desarrollo (los incluimos siempre para facilitar las pruebas)
     'http://localhost:5173',
