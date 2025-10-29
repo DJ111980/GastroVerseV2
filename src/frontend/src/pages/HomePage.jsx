@@ -7,9 +7,13 @@
  * y una cuadrícula con todas las recetas o los resultados de la búsqueda/filtro.
  */
 
-import React, { useState, useEffect, useCallback } from "react";
-import apiClient from "../services/api";
-import "./HomePage.css";
+import React, { useState, useEffect, useCallback } from 'react';
+import apiClient from '../services/api';
+import RecipeCard from '../components/common/RecipeCard';
+import FilterControls from '../components/common/FilterControls';
+import SearchBar from '../components/common/SearchBar';
+import PopularRecipes from '../components/common/PopularRecipes';
+import './HomePage.css';
 
 /**
  * Componente funcional que renderiza la página de inicio.
@@ -21,7 +25,7 @@ const HomePage = () => {
   const [displayedRecipes, setDisplayedRecipes] = useState([]); // Recetas que se muestran actualmente en la cuadrícula.
   const [gridLoading, setGridLoading] = useState(true); // Estado de carga para la cuadrícula de recetas.
   const [error, setError] = useState(null); // Almacena mensajes de error de la API.
-  const [activeSearchTerm, setActiveSearchTerm] = useState(""); // Término de búsqueda activo.
+  const [activeSearchTerm, setActiveSearchTerm] = useState(''); // Término de búsqueda activo.
   const [activeFilters, setActiveFilters] = useState({}); // Filtros activos.
 
   /**
@@ -32,7 +36,7 @@ const HomePage = () => {
     setGridLoading(true);
     setError(null);
     try {
-      const response = await apiClient.get("/recetas");
+      const response = await apiClient.get('/recetas');
       if (Array.isArray(response.data)) {
         setAllRecipes(response.data);
         setDisplayedRecipes(response.data);
@@ -41,7 +45,7 @@ const HomePage = () => {
         setDisplayedRecipes([]);
       }
     } catch (err) {
-      setError("No se pudieron cargar las recetas.");
+      setError('No se pudieron cargar las recetas.');
     } finally {
       setGridLoading(false);
     }
@@ -65,16 +69,14 @@ const HomePage = () => {
     setActiveSearchTerm(searchTerm);
     setActiveFilters({}); // Resetea los filtros al hacer una nueva búsqueda.
     try {
-      const response = await apiClient.get(
-        `/busqueda/general?termino=${searchTerm}`
-      );
+      const response = await apiClient.get(`/busqueda/general?termino=${searchTerm}`);
       if (Array.isArray(response.data.recetas)) {
         setDisplayedRecipes(response.data.recetas);
       } else {
         setDisplayedRecipes([]);
       }
     } catch (err) {
-      setError("Error al buscar recetas.");
+      setError('Error al buscar recetas.');
       setDisplayedRecipes([]);
     } finally {
       setGridLoading(false);
@@ -91,32 +93,30 @@ const HomePage = () => {
     setGridLoading(true);
     setError(null);
     setActiveFilters(filters);
-    setActiveSearchTerm(""); // Resetea la búsqueda al aplicar filtros.
+    setActiveSearchTerm(''); // Resetea la búsqueda al aplicar filtros.
     try {
       const params = new URLSearchParams(filters);
-      const response = await apiClient.get(
-        `/busqueda/filtrar?${params.toString()}`
-      );
+      const response = await apiClient.get(`/busqueda/filtrar?${params.toString()}`);
       if (Array.isArray(response.data)) {
         setDisplayedRecipes(response.data);
       } else {
         setDisplayedRecipes([]);
       }
     } catch (err) {
-      setError("Error al filtrar las recetas.");
+      setError('Error al filtrar las recetas.');
       setDisplayedRecipes([]);
     } finally {
       setGridLoading(false);
     }
   };
-
+  
   /**
    * Resetea la vista para mostrar de nuevo todas las recetas.
    * Limpia los términos de búsqueda y los filtros activos.
    */
   const handleReset = () => {
     setDisplayedRecipes(allRecipes);
-    setActiveSearchTerm("");
+    setActiveSearchTerm('');
     setActiveFilters({});
   };
 
@@ -125,10 +125,8 @@ const HomePage = () => {
    * @returns {string|null} El mensaje a mostrar, o null si no hay búsqueda ni filtro.
    */
   const getDisplayMessage = () => {
-    if (activeSearchTerm)
-      return `Mostrando resultados para "${activeSearchTerm}".`;
-    if (Object.keys(activeFilters).length > 0)
-      return `Mostrando resultados filtrados.`;
+    if (activeSearchTerm) return `Mostrando resultados para "${activeSearchTerm}".`;
+    if (Object.keys(activeFilters).length > 0) return `Mostrando resultados filtrados.`;
     return null;
   };
 
@@ -140,13 +138,13 @@ const HomePage = () => {
         <h1>Descubre Nuevas Recetas</h1>
         <p className="slogan">"Donde cada receta tiene su Universo"</p>
       </div>
-
+      
       <div className="search-section">
         <SearchBar onSearchSubmit={handleFullSearch} />
       </div>
 
       <FilterControls onFilterChange={handleFilter} onReset={handleReset} />
-
+      
       {displayMessage && (
         <p className="filter-info">
           {displayMessage} <button onClick={handleReset}>Ver todas</button>
@@ -171,14 +169,15 @@ const HomePage = () => {
         ) : (
           <div className="recipes-grid">
             {displayedRecipes.length > 0 ? (
-              displayedRecipes.map((recipe) => (
+              displayedRecipes.map(recipe => (
                 <RecipeCard key={recipe.id} recipe={recipe} />
               ))
             ) : (
               <p>
                 {activeSearchTerm || Object.keys(activeFilters).length > 0
-                  ? "No se encontraron recetas que coincidan con tu criterio."
-                  : "No hay recetas disponibles en este momento."}
+                  ? "No se encontraron recetas que coincidan con tu criterio." 
+                  : "No hay recetas disponibles en este momento."
+                }
               </p>
             )}
           </div>
