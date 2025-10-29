@@ -1,0 +1,111 @@
+/**
+ * @fileoverview Estilos para el componente de controles de filtro.
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo define la apariencia del contenedor de filtros,
+ * incluyendo los grupos de selección y los botones de acción para aplicar
+ * y resetear los filtros.
+ */
+
+/* ==========================================================================
+   1. Contenedor Principal de Filtros
+   ========================================================================== */
+/**
+ * Estilo para el contenedor principal de los controles de filtro.
+ * - `display: flex`: Permite alinear los grupos de filtro y los botones.
+ * - `flex-wrap: wrap`: Permite que los elementos se reorganicen en pantallas pequeñas.
+ * - `align-items: flex-end`: Alinea los elementos en la parte inferior, lo que
+ *   hace que los botones y los campos de formulario se vean alineados si tienen
+ *   diferentes alturas (ej. por las etiquetas).
+ */
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2rem;
+  align-items: flex-end;
+}
+
+/* ==========================================================================
+   2. Grupos de Filtro (Etiqueta + Input)
+   ========================================================================== */
+/**
+ * Contenedor para cada par de etiqueta y campo de selección/input.
+ * `flex-direction: column` apila la etiqueta encima del campo.
+ */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-light);
+}
+
+.filter-group select,
+.filter-group input {
+  /* Los estilos base (padding, borde, etc.) se heredan de index.css */
+  min-width: 150px; /* Asegura un ancho mínimo para una mejor apariencia. */
+}
+
+/* ==========================================================================
+   3. Botones de Acción
+   ========================================================================== */
+/**
+ * Contenedor para los botones de acción (Aplicar, Resetear).
+ * `margin-left: auto` es un truco de flexbox que empuja este contenedor
+ * hacia el extremo derecho del contenedor padre.
+ */
+.filter-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+/**
+ * Estilo base para los botones dentro del contenedor de filtros.
+ */
+.filter-button {
+  font-family: var(--font-body);
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.filter-button:hover {
+  transform: translateY(-2px);
+}
+
+/**
+ * Modificador para el botón de "Aplicar".
+ * Utiliza el color primario de la marca.
+ */
+.filter-button.apply {
+  background-color: var(--color-primary);
+  color: white;
+}
+.filter-button.apply:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/**
+ * Modificador para el botón de "Resetear".
+ * Utiliza un color neutro para diferenciarlo de la acción principal.
+ */
+.filter-button.reset {
+  background-color: #6c757d;
+  color: white;
+}
+.filter-button.reset:hover {
+  background-color: #5a6268;
+}

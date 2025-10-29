@@ -1,0 +1,97 @@
+/**
+ * @fileoverview Estilos para el componente reutilizable de tarjeta de receta (RecipeCard).
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo define la apariencia de las tarjetas que se usan para
+ * mostrar un resumen de cada receta en las diferentes cuadrículas de la aplicación.
+ */
+
+/* ==========================================================================
+   1. Contenedor Principal de la Tarjeta
+   ========================================================================== */
+/**
+ * Estilo base para la tarjeta de receta.
+ * - `display: flex` y `flex-direction: column`: Permiten que el contenido
+ *   se estire para ocupar toda la altura de la tarjeta.
+ * - `justify-content: space-between`: Empuja el contenido principal hacia arriba
+ *   y la sección de acciones (si existe) hacia abajo.
+ * - `overflow: hidden`: Asegura que el contenido no se salga de los bordes redondeados.
+ */
+.recipe-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/**
+ * Efecto hover que eleva la tarjeta y aumenta la sombra para dar una
+ * sensación de interactividad.
+ */
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   2. Contenido de la Tarjeta
+   ========================================================================== */
+.recipe-card-content {
+  padding: 1.5rem;
+}
+
+.recipe-card-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.recipe-card-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ==========================================================================
+   3. Sección de Acciones (ej. Quitar de Favoritos)
+   ========================================================================== */
+/**
+ * Contenedor para los botones de acción dentro de la tarjeta.
+ * Se separa del contenido principal con un borde superior sutil.
+ */
+.recipe-card-actions {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  margin-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+/**
+ * Estilo para el botón de "Quitar de Favoritos".
+ * Se diseña con un estilo de "contorno" (outline) utilizando el color de peligro
+ * para indicar una acción de eliminación.
+ */
+.remove-favorite-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: transparent;
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.remove-favorite-btn:hover {
+  background-color: #dc3545;
+  color: white;
+}

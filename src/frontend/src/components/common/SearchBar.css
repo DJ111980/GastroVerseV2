@@ -1,0 +1,89 @@
+/**
+ * @fileoverview Estilos para el componente de barra de búsqueda (SearchBar).
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo define la apariencia de la barra de búsqueda y la
+ * lista desplegable de resultados que aparece mientras el usuario escribe.
+ */
+
+/* ==========================================================================
+   1. Contenedor Principal
+   ========================================================================== */
+/**
+ * Contenedor principal de la barra de búsqueda.
+ * - `position: relative`: Es crucial para que la lista de resultados
+ *   desplegable (`.search-results-dropdown`) pueda posicionarse
+ *   absolutamente con respecto a este contenedor.
+ * - `margin: 0 auto`: Centra la barra de búsqueda en la página.
+ */
+.search-bar-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. Campo de Búsqueda (Input)
+   ========================================================================== */
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 30px; /* Bordes redondeados para una apariencia de "píldora" */
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+/* ==========================================================================
+   3. Lista Desplegable de Resultados
+   ========================================================================== */
+/**
+ * Contenedor para la lista de resultados de búsqueda.
+ * - `position: absolute`: Lo saca del flujo normal del documento y lo posiciona
+ *   relativo al `.search-bar-container`.
+ * - `z-index: 1000`: Asegura que aparezca por encima de otros elementos de la página.
+ * - `max-height` y `overflow-y: auto`: Permiten que la lista tenga scroll si
+ *   hay demasiados resultados.
+ */
+.search-results-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/**
+ * Estilo para cada elemento individual en la lista de resultados.
+ * Se diseña como un enlace de bloque para que toda el área sea clickeable.
+ */
+.search-result-item {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: #f8f9fa;
+}

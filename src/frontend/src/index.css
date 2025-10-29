@@ -18,7 +18,7 @@
 :root {
   /* --- Paleta de Colores --- */
   --color-primary: #dc2626;          /* Color principal para branding, enlaces y acentos importantes. */
-  --color-primary-dark: #da3545;    /* Versión más oscura del primario, para estados :hover. */
+  --color-primary-dark: #f22626;    /* Versión más oscura del primario, para estados :hover. */
   --color-accent: #E0A800;           /* Color de acento para llamadas a la acción secundarias o elementos destacados. */
   --color-accent-dark: #c89600;     /* Versión oscura del color de acento. */
   --color-text: #2C2C2C;             /* Color principal para el cuerpo del texto. */
