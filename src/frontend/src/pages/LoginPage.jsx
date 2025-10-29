@@ -7,11 +7,10 @@
  * para manejar la lógica de login y redirige al usuario en caso de éxito.
  */
 
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import "./AuthForm.css";
-import logo from "../assets/logo.png";
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import './AuthForm.css';
 
 /**
  * Componente funcional que representa la página de inicio de sesión.
@@ -19,9 +18,9 @@ import logo from "../assets/logo.png";
  */
 const LoginPage = () => {
   // --- ESTADOS DEL FORMULARIO ---
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   // --- HOOKS ---
@@ -36,18 +35,15 @@ const LoginPage = () => {
    */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError('');
     setLoading(true);
 
     try {
       await login(email, password);
-      navigate("/perfil"); // Redirige a la página de inicio tras un login exitoso.
+      navigate('/'); // Redirige a la página de inicio tras un login exitoso.
     } catch (err) {
       // Muestra un mensaje de error si el login falla.
-      setError(
-        err.response?.data?.error ||
-          "Error al iniciar sesión. Verifica tus credenciales."
-      );
+      setError(err.response?.data?.error || 'Error al iniciar sesión. Verifica tus credenciales.');
     } finally {
       setLoading(false);
     }
@@ -59,27 +55,15 @@ const LoginPage = () => {
         <h2>Iniciar Sesión</h2>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="password">Contraseña</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         {error && <p className="error-message">{error}</p>}
         <button type="submit" className="auth-button" disabled={loading}>
-          {loading ? "Iniciando sesión..." : "Entrar"}
+          {loading ? 'Iniciando sesión...' : 'Entrar'}
         </button>
         <p className="auth-switch">
           ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>

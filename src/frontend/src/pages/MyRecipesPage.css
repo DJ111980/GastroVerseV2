@@ -1,0 +1,81 @@
+/**
+ * @fileoverview Estilos para la página "Mis Recetas".
+ * @author Diego Bugallo
+ * @version 1.0.0
+ * @description Este archivo define la apariencia de la página donde los usuarios
+ * ven una lista de las recetas que han creado, incluyendo la cabecera y el
+ * mensaje que se muestra si aún no han creado ninguna.
+ */
+
+/* ==========================================================================
+   1. Contenedor y Cabecera
+   ========================================================================== */
+/**
+ * Padding general para el contenedor de la página.
+ */
+.my-recipes-container {
+  padding: 2rem;
+}
+
+/**
+ * Estilo para la cabecera de la página.
+ * Centra el texto y añade un borde inferior para una separación visual.
+ */
+.my-recipes-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1.5rem;
+}
+
+.my-recipes-header h1 {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-headings);
+  color: var(--color-primary);
+}
+
+.my-recipes-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* ==========================================================================
+   2. Estado Vacío (Sin Recetas Creadas)
+   ========================================================================== */
+/**
+ * Estilo para el mensaje que se muestra cuando el usuario no ha creado recetas.
+ * Se diseña como una caja destacada para llamar la atención e invitar a la acción.
+ */
+.no-recipes-message {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.no-recipes-message p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/**
+ * Botón de llamada a la acción para que el usuario cree su primera receta.
+ * Se diseña como un botón prominente para guiar al usuario.
+ */
+.create-recipe-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius, 5px); /* Usa la variable global o un fallback */
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  border: none;
+}
+
+.create-recipe-link:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}

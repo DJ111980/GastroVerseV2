@@ -7,11 +7,11 @@
  * y redirige al usuario a la página de inicio.
  */
 
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import apiClient from "../services/api";
-import { useAuth } from "../context/AuthContext";
-import "./AuthForm.css";
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import apiClient from '../services/api';
+import { useAuth } from '../context/AuthContext';
+import './AuthForm.css';
 
 /**
  * Componente funcional que representa la página de registro.
@@ -19,12 +19,12 @@ import "./AuthForm.css";
  */
 const RegisterPage = () => {
   // --- ESTADOS DEL FORMULARIO ---
-  const [nombre, setNombre] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
+  
   // --- HOOKS ---
   const navigate = useNavigate();
   const { login } = useAuth(); // Se usa para el inicio de sesión automático post-registro.
@@ -39,12 +39,12 @@ const RegisterPage = () => {
    */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError('');
     setLoading(true);
 
     try {
       // Paso 1: Enviar datos de registro a la API para crear el usuario.
-      await apiClient.post("/usuarios", {
+      await apiClient.post('/usuarios', {
         nombre,
         email,
         contraseña: password,
@@ -54,13 +54,13 @@ const RegisterPage = () => {
       await login(email, password);
 
       // Paso 3: Redirigir a la página de inicio.
-      navigate("/");
+      navigate('/');
     } catch (err) {
       // Manejo de errores de la API. Prioriza los mensajes de validación.
-      const errorMsg = err.response?.data?.detalles
-        ? err.response.data.detalles.join(", ")
+      const errorMsg = err.response?.data?.detalles 
+        ? err.response.data.detalles.join(', ') 
         : err.response?.data?.error;
-      setError(errorMsg);
+      setError(errorMsg || 'Ocurrió un error. Por favor, inténtalo de nuevo.');
     } finally {
       setLoading(false);
     }
@@ -72,38 +72,19 @@ const RegisterPage = () => {
         <h2>Crear una Cuenta</h2>
         <div className="form-group">
           <label htmlFor="nombre">Nombre</label>
-          <input
-            id="nombre"
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
+          <input id="nombre" type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="password">Contraseña</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength="6"
-          />
+          <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength="6" />
         </div>
         {error && <p className="error-message">{error}</p>}
         <button type="submit" className="auth-button" disabled={loading}>
-          {loading ? "Registrando..." : "Registrarse"}
+          {loading ? 'Registrando...' : 'Registrarse'}
         </button>
         <p className="auth-switch">
           ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
