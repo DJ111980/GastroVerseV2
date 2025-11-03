@@ -1,6 +1,6 @@
 /**
  * @fileoverview Estilos para el componente de controles de filtro.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo define la apariencia del contenedor de filtros,
  * incluyendo los grupos de selección y los botones de acción para aplicar
@@ -26,7 +26,7 @@
   background-color: var(--color-surface);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  margin-bottom: 2rem;
+  margin-bottom: 8rem;
   align-items: flex-end;
 }
 

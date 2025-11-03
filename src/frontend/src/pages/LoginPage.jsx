@@ -1,6 +1,6 @@
 /**
  * @fileoverview Página de inicio de sesión de usuario.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente renderiza un formulario que permite a los usuarios
  * existentes iniciar sesión en la aplicación. Utiliza el contexto de autenticación

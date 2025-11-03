@@ -1,6 +1,6 @@
 /**
  * @fileoverview Estilos para el componente reutilizable de tarjeta de receta (RecipeCard).
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo define la apariencia de las tarjetas que se usan para
  * mostrar un resumen de cada receta en las diferentes cuadrículas de la aplicación.
@@ -30,6 +30,12 @@
   justify-content: space-between;
 }
 
+.recipe-card-image {
+  width: 100%;
+  height: 160px; /* Puedes ajustar: 140-200 según gusto */
+  object-fit: cover; /* Mantiene proporciones y recorta si es necesario */
+  display: block;
+}
 /**
  * Efecto hover que eleva la tarjeta y aumenta la sombra para dar una
  * sensación de interactividad.

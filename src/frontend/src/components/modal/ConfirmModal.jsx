@@ -1,6 +1,6 @@
 /**
  * @fileoverview Componente de modal de confirmación reutilizable.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente renderiza una ventana modal genérica para solicitar
  * la confirmación del usuario antes de realizar una acción (ej. borrar).

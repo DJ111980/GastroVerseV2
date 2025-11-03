@@ -1,6 +1,6 @@
 /**
  * @fileoverview Página de perfil del usuario autenticado.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente muestra la información del usuario que ha iniciado sesión,
  * como su nombre, email y fecha de registro. Obtiene los datos directamente

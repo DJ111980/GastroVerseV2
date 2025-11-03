@@ -1,6 +1,6 @@
 /**
  * @fileoverview Componente de orden superior para proteger rutas.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente actúa como un guardián para las rutas que requieren
  * autenticación. Verifica el estado de autenticación del usuario a través del

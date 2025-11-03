@@ -1,6 +1,6 @@
 /**
  * @fileoverview Estilos para la página de creación y edición de recetas.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo define la apariencia del formulario para crear y editar
  * recetas, incluyendo la sección de campos de texto dinámicos para las instrucciones.
@@ -207,4 +207,37 @@
   padding: 0.75rem;
   text-align: center;
   margin-bottom: 1.5rem;
+}
+
+.default-image-btn {
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 0.9rem;
+}
+
+.default-image-btn:hover {
+  background: #eaeaea;
+}
+
+.toast-image {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f44336;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
 }

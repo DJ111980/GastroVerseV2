@@ -1,6 +1,6 @@
 /**
  * @fileoverview Estilos para la página de inicio (HomePage).
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo define la apariencia de la página principal, incluyendo
  * la sección de bienvenida (héroe), la sección de búsqueda y filtros, y la
@@ -16,13 +16,13 @@
  */
 .hero-section {
   text-align: center;
-  margin-bottom: 3rem;
-  padding: 2rem 0;
+  margin-bottom: 0rem;
+  padding: 0rem 0;
 }
 
 .hero-section h1 {
   font-size: 3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
 }
 
 /**

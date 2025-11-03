@@ -1,6 +1,6 @@
 /**
  * @fileoverview Componente de la barra de navegación principal de la aplicación.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente renderiza la barra de navegación superior. Muestra
  * diferentes enlaces y acciones dependiendo de si el usuario está autenticado o no,

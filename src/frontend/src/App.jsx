@@ -1,6 +1,6 @@
 /**
  * @fileoverview Componente principal de la aplicación GastroVerse.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente actúa como el orquestador central de la aplicación.
  * Configura el enrutador, define todas las rutas (públicas y protegidas),

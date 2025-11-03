@@ -1,6 +1,6 @@
 /**
  * @fileoverview Componente reutilizable con controles para filtrar recetas.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente renderiza un conjunto de campos de formulario (select, input)
  * que permiten al usuario filtrar recetas por criterios como dificultad y tiempo.
@@ -55,6 +55,7 @@ const FilterControls = ({ onFilterChange, onReset }) => {
           id="dificultad"
           value={dificultad}
           onChange={(e) => setDificultad(e.target.value)}
+          className="select-dificultad"
         >
           <option value="">Cualquiera</option>
           <option value="Fácil">Fácil</option>

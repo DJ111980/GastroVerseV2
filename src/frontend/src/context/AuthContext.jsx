@@ -1,6 +1,6 @@
 /**
  * @fileoverview Contexto de autenticación para la aplicación GastroVerse.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo crea y gestiona el estado global de autenticación.
  * Proporciona un contexto con la información del usuario, el token, y funciones

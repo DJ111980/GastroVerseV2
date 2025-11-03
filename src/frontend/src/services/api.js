@@ -1,6 +1,6 @@
 /**
  * @fileoverview Configuración centralizada del cliente HTTP (axios) para la API de GastroVerse.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo crea y exporta una instancia de axios pre-configurada.
  * Incluye la URL base de la API desde las variables de entorno y un interceptor

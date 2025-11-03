@@ -1,6 +1,6 @@
 /**
  * @fileoverview Página de inicio de GastroVerse.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente es la página principal de la aplicación. Muestra una sección
  * de bienvenida, controles de búsqueda y filtrado, una sección de recetas populares,

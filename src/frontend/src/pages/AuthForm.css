@@ -1,6 +1,6 @@
 /**
  * @fileoverview Estilos compartidos para los formularios de autenticación (Login y Registro).
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo contiene los estilos para crear una apariencia de tarjeta
  * consistente para los formularios de inicio de sesión y registro, asegurando
@@ -74,6 +74,7 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  font-family: Arial;
   transition: background-color 0.2s, transform 0.1s;
 }
 

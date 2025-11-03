@@ -1,6 +1,6 @@
 /**
  * @fileoverview Página que muestra las recetas creadas por el usuario autenticado.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente obtiene y renderiza una lista de las recetas que el
  * usuario ha creado. Muestra un mensaje de bienvenida si la lista está vacía.

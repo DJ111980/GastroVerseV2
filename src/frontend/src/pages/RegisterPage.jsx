@@ -1,6 +1,6 @@
 /**
  * @fileoverview Página de registro para nuevos usuarios.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente renderiza un formulario que permite a los nuevos usuarios
  * crear una cuenta. Tras un registro exitoso, inicia sesión automáticamente

@@ -1,6 +1,6 @@
 /**
  * @fileoverview Página para editar los ingredientes de una receta específica.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente permite a los usuarios ver, añadir y eliminar ingredientes
  * de una receta. Carga los ingredientes existentes, proporciona un formulario para

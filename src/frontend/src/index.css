@@ -1,6 +1,6 @@
 /**
  * @fileoverview Hoja de estilos global para la aplicación GastroVerse.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo define las bases del sistema de diseño de la aplicación,
  * incluyendo la paleta de colores, la tipografía, y los estilos base para
@@ -31,7 +31,7 @@
   --color-danger: #dc3545;           /* Color para notificaciones de error o acciones destructivas. */
 
   /* --- Tipografía --- */
-  --font-headings: 'Lora', serif;    /* Fuente con serifa para títulos, aporta elegancia. */
+  --font-headings: 'Lora';    /* Fuente con serifa para títulos, aporta elegancia. */
   --font-body: 'Lato', sans-serif;   /* Fuente sans-serif para el cuerpo, optimizada para legibilidad. */
 
   /* --- Otros --- */
@@ -65,6 +65,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headings);
   color: var(--color-primary);
   margin-top: 0;
+}
+
+h2 {
+  font-family: Arial;
+  color: var(--color-primary);
+  margin-top: 0;
+  font-size: 32px;
 }
 
 /**

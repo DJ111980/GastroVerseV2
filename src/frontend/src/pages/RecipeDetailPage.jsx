@@ -1,6 +1,6 @@
 /**
  * @fileoverview Página de detalles de una receta específica.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente es el centro de visualización de una receta. Carga y muestra
  * los detalles de la receta, sus ingredientes (si el usuario está autenticado), y proporciona

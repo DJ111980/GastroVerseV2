@@ -1,6 +1,6 @@
 /**
  * @fileoverview Componente para mostrar una sección de recetas populares.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente obtiene y renderiza una lista de las recetas más
  * populares (ej. las más guardadas en favoritos) desde la API. Está diseñado

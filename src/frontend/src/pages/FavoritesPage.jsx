@@ -1,6 +1,6 @@
 /**
  * @fileoverview Página que muestra las recetas favoritas de un usuario.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este componente obtiene y renderiza una lista de las recetas que el
  * usuario ha marcado como favoritas. Permite también eliminar recetas de esta lista.

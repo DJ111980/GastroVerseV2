@@ -1,6 +1,6 @@
 /**
  * @fileoverview Punto de entrada principal de la aplicación React - GastroVerse.
- * @author Diego Bugallo
+ * @author Ronald Niño
  * @version 1.0.0
  * @description Este archivo se encarga de renderizar el componente raíz de la aplicación (`App`)
  * en el DOM. También configura dependencias globales como el proveedor de autenticación
