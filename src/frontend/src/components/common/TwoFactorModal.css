@@ -1,0 +1,75 @@
+.twofa-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.twofa-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.twofa-description {
+  margin-bottom: 1.5rem;
+  color: #666;
+  text-align: center;
+}
+
+.twofa-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 4px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.twofa-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.twofa-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.twofa-buttons .auth-button {
+  flex: 1;
+}
+
+.twofa-buttons .auth-button.secondary {
+  background: #6c757d;
+}
+
+.twofa-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #4CAF50;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.link-button:hover {
+  color: #45a049;
+}

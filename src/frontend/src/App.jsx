@@ -1,7 +1,7 @@
 /**
  * @fileoverview Componente principal de la aplicación GastroVerse.
  * @author Ronald Niño
- * @version 1.0.0
+ * @version 1.1.0 - Agregado soporte para 2FA
  * @description Este componente actúa como el orquestador central de la aplicación.
  * Configura el enrutador, define todas las rutas (públicas y protegidas),
  * y renderiza los componentes de layout persistentes como la barra de navegación
@@ -28,6 +28,8 @@ import MyRecipesPage from './pages/MyRecipesPage';
 // Importaciones de componentes
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Navbar from './components/layout/Navbar';
+import TwoFactorModal from './components/common/TwoFactorModal';
+import Setup2FAModal from './components/common/Setup2FAModal';
 
 // Estilos
 import './App.css'; 
@@ -56,6 +58,12 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      
+      {/**
+       * Modales de 2FA (se renderizan condicionalmente)
+       */}
+      <TwoFactorModal />
+      <Setup2FAModal />
       
       {/**
        * Componente de la barra de navegación, visible en todas las las páginas.

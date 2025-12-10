@@ -1,7 +1,8 @@
+// src/services/api.js
 /**
  * @fileoverview Configuración centralizada del cliente HTTP (axios) para la API de GastroVerse.
  * @author Ronald Niño
- * @version 1.0.0
+ * @version 1.1.0 - Agregado soporte para 2FA
  * @description Este archivo crea y exporta una instancia de axios pre-configurada.
  * Incluye la URL base de la API desde las variables de entorno y un interceptor
  * que añade automáticamente el token de autenticación a todas las peticiones salientes.
@@ -55,5 +56,72 @@ apiClient.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+/**
+ * Interceptor de respuestas para manejar errores globalmente
+ */
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Token expirado o inválido
+      localStorage.removeItem('authToken');
+      window.location.href = '/login?session=expired';
+    }
+    return Promise.reject(error);
+  }
+);
+
+/**
+ * Funciones específicas para 2FA
+ */
+export const twoFactorAPI = {
+  /**
+   * Verificar código 2FA después del login
+   * @param {string} token_2fa - Código de 6 dígitos
+   * @param {string} token_temporal - Token temporal del login
+   * @returns {Promise<object>} Respuesta con token JWT
+   */
+  verify2FA: (token_2fa, token_temporal) => 
+    apiClient.post('/usuarios/login/verify-2fa', { token_2fa, token_temporal }),
+  
+  /**
+   * Usar código de respaldo para acceso
+   * @param {string} backup_code - Código de respaldo de 8 dígitos
+   * @param {string} token_temporal - Token temporal del login
+   * @returns {Promise<object>} Respuesta con token JWT
+   */
+  verifyBackupCode: (backup_code, token_temporal) => 
+    apiClient.post('/usuarios/login/backup-code', { backup_code, token_temporal }),
+  
+  /**
+   * Obtener configuración para setup de 2FA (QR code)
+   * @returns {Promise<object>} Datos con QR code y secreto
+   */
+  setup2FA: () => 
+    apiClient.post('/usuarios/2fa/setup'),
+  
+  /**
+   * Activar 2FA con código de verificación
+   * @param {string} token_2fa - Código de 6 dígitos
+   * @returns {Promise<object>} Respuesta con códigos de respaldo
+   */
+  enable2FA: (token_2fa) => 
+    apiClient.post('/usuarios/2fa/enable', { token_2fa }),
+  
+  /**
+   * Desactivar 2FA
+   * @returns {Promise<object>} Respuesta de confirmación
+   */
+  disable2FA: () => 
+    apiClient.post('/usuarios/2fa/disable'),
+  
+  /**
+   * Obtener estado actual del 2FA (desde perfil)
+   * @returns {Promise<object>} Estado del 2FA
+   */
+  get2FAStatus: () => 
+    apiClient.get('/usuarios/me')
+};
 
 export default apiClient;
