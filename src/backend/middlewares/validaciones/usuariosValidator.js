@@ -189,6 +189,15 @@ const validarRecetaId = [
     .toInt()
 ];
 
+const validar2FA = [
+  body('token_2fa')
+    .isLength({ min: 6, max: 6 })
+    .withMessage('El código 2FA debe tener 6 dígitos')
+    .isNumeric()
+    .withMessage('El código 2FA debe ser numérico'),
+  body('token_temporal').notEmpty().withMessage('Token temporal requerido')
+];
+
 // Exportación modular de todas las validaciones
 module.exports = { 
   validarRegistroUsuario, 
@@ -200,5 +209,6 @@ module.exports = {
   validarCrearIngrediente,
   validarCrearReceta,
   validarCrearUsuario,
-  validarBusquedaTexto
+  validarBusquedaTexto,
+  validar2FA
 };

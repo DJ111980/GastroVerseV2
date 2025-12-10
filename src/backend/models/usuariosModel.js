@@ -7,60 +7,65 @@
 
 const database = require('../config/database');
 
-/**
- * Modelo de usuarios con operaciones básicas
- * Maneja registro, búsqueda y listado de usuarios
- * @namespace UsuariosModel
- */
 const UsuariosModel = {
-  /**
-   * Registra un nuevo usuario en el sistema
-   * @param {Object} userData - Datos del nuevo usuario
-   * @param {string} userData.email - Email único del usuario
-   * @param {string} userData.contraseña - Contraseña hasheada con bcrypt
-   * @param {string} userData.nombre - Nombre completo del usuario
-   * @returns {Promise<Object>} Usuario creado con ID asignado
-   */
   async crearUsuario({ email, contraseña, nombre }) {
     const query = `
-      INSERT INTO usuarios (email, contraseña, nombre)
-      VALUES ($1, $2, $3)
+      INSERT INTO usuarios (email, contraseña, nombre) 
+      VALUES ($1, $2, $3) 
       RETURNING *;
     `;
     const values = [email, contraseña, nombre];
     const result = await database.query(query, values);
     return result.rows[0];
   },
-
-  /**
-   * Busca usuario por email para autenticación
-   * Incluye contraseña para validación en login
-   * @param {string} email - Email del usuario
-   * @returns {Promise<Object|undefined>} Usuario encontrado o undefined
-   */
+  
   async obtenerUsuarioPorEmail(email) {
-    const result = await database.query('SELECT * FROM usuarios WHERE email = $1', [email]);
+    const result = await database.query(
+      'SELECT * FROM usuarios WHERE email = $1', 
+      [email]
+    );
     return result.rows[0];
   },
-
-  /**
-   * Busca usuario por ID para sesiones autenticadas
-   * @param {number} id - ID único del usuario
-   * @returns {Promise<Object|undefined>} Usuario encontrado o undefined
-   */
+  
   async obtenerUsuarioPorId(id) {
-    const result = await database.query('SELECT * FROM usuarios WHERE id = $1', [id]);
+    const result = await database.query(
+      'SELECT * FROM usuarios WHERE id = $1', 
+      [id]
+    );
     return result.rows[0];
   },
-
-  /**
-   * Lista todos los usuarios registrados
-   * Excluye contraseñas por seguridad
-   * @returns {Promise<Array>} Lista de usuarios sin datos sensibles
-   */
+  
   async obtenerTodos() {
-    const result = await database.query('SELECT id, email, nombre, fecha_creacion FROM usuarios ORDER BY fecha_creacion DESC');
+    const result = await database.query(
+      'SELECT id, email, nombre, fecha_creacion FROM usuarios ORDER BY fecha_creacion DESC'
+    );
     return result.rows;
+  },
+  
+  async actualizarUsuario(id, datos) {
+    const campos = Object.keys(datos);
+    const valores = Object.values(datos);
+    
+    const setClause = campos.map((campo, index) => `${campo} = $${index + 2}`).join(', ');
+    
+    const query = `
+      UPDATE usuarios 
+      SET ${setClause}, fecha_actualizacion = CURRENT_TIMESTAMP
+      WHERE id = $1 
+      RETURNING *;
+    `;
+    
+    const values = [id, ...valores];
+    const result = await database.query(query, values);
+    return result.rows[0];
+  },
+  
+  async obtenerTwoFactorSecret(userId) {
+    const result = await database.query(
+      'SELECT two_factor_secret FROM usuarios WHERE id = $1',
+      [userId]
+    );
+    return result.rows[0]?.two_factor_secret;
   }
 };
 

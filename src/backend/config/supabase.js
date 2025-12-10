@@ -3,7 +3,6 @@
  * @author Tu Nombre
  * @version 1.0.0
  */
-
 const { createClient } = require('@supabase/supabase-js');
 // require('dotenv').config(); // <-- ELIMINA ESTA LÍNEA
 

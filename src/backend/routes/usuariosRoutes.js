@@ -9,31 +9,26 @@ const express = require('express');
 const router = express.Router();
 const UsuariosController = require('../controllers/usuariosController');
 const { verificarToken } = require('../middlewares/authMiddleware');
-const { validarRegistroUsuario, validarLogin } = require('../middlewares/validaciones/usuariosValidator');
+const { 
+  validarRegistroUsuario, 
+  validarLogin,
+  validar2FA 
+} = require('../middlewares/validaciones/usuariosValidator');
 const manejoErroresValidacion = require('../middlewares/manejoErroresValidacion');
 
-/**
- * POST /api/v1/usuarios
- * Registro de nuevo usuario con validaciones
- */
+// Rutas públicas
 router.post('/', validarRegistroUsuario, manejoErroresValidacion, UsuariosController.crearUsuario);
-
-/**
- * POST /api/v1/usuarios/login
- * Autenticación de usuario - genera JWT
- */
 router.post('/login', validarLogin, manejoErroresValidacion, UsuariosController.loginUsuario);
+router.post('/login/verify-2fa', validar2FA, manejoErroresValidacion, UsuariosController.verificar2FA);
+router.post('/login/backup-code', UsuariosController.verificarBackupCode);
 
-/**
- * GET /api/v1/usuarios/me
- * Obtener perfil del usuario autenticado
- */
+// Rutas protegidas
 router.get('/me', verificarToken, UsuariosController.obtenerPerfil);
-
-/**
- * POST /api/v1/usuarios/logout
- * Cerrar sesión - invalida token JWT
- */
 router.post('/logout', verificarToken, UsuariosController.logout);
+
+// Rutas de gestión 2FA
+router.post('/2fa/setup', verificarToken, UsuariosController.setup2FA);
+router.post('/2fa/enable', verificarToken, UsuariosController.enable2FA);
+router.post('/2fa/disable', verificarToken, UsuariosController.disable2FA);
 
 module.exports = router;
